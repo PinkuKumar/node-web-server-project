@@ -2,6 +2,8 @@ const express = require('express');
 const fs = require('fs')
 const hbs = require('hbs');
 
+const port = process.env.PORT || 3000;
+
 const app = express();
 
 //setting the view template engine
@@ -71,6 +73,7 @@ app.get('/bad',(req,res) =>{
   })
 })
 
-app.listen(3000,()=>{
-  console.log('Server is up on port 3000')
+//commnt - For Heroku need variable port
+app.listen(port,()=>{
+  console.log(`Server is up on port ${port}`);
 });
