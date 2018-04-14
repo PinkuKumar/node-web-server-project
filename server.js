@@ -26,10 +26,10 @@ app.use((req,res,next) => {
   next();
 
 })
-
-app.use((req,res,next) => {
-    res.render('maintenance.hbs');
-});
+// uncomment to enable mainetenance page
+// app.use((req,res,next) => {
+//     res.render('maintenance.hbs');
+// });
 
 //__dirname gives the root of the project folder
 app.use(express.static(__dirname + '/public'))
@@ -65,6 +65,13 @@ app.get('/about',(req,res) => {
   //   name: 'Web Server Project',
   //   version: '1.0.0'
   // });
+})
+
+app.get('/projects',(req,res) => {
+  res.render('projects.hbs',{
+    pageName: 'Projects'
+  })
+
 })
 
 app.get('/bad',(req,res) =>{
